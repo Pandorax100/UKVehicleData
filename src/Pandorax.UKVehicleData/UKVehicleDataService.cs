@@ -22,6 +22,7 @@ namespace Pandorax.UKVehicleData
             _options = options.Value;
         }
 
+        /// <inheritdoc/>
         public async Task<UKVehicleDataResponse> GetVehicleDataByRegistrationNumberAsync(string registration)
         {
             using HttpResponseMessage response = await _client.GetAsync($"/api/datapackage/VehicleData?v=2&auth_apikey={_options.ApiKey}&key_VRM={registration}");
