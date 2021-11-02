@@ -1,0 +1,913 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "definitions": {
+    "Consumption": {
+      "type": "object",
+      "properties": {
+        "Lkm": {
+          "type": "number",
+          "description": "Fuel efficiency in litres per 100km for the 'combined' engine cycle as stipulated in Directive 1999/100/EC. The combined figure presented is for the urban and the extra-urban cycle together. It is therefore an average of the two other parts of the fuel consumption test, Urban and Extra-urban cycles, weighted by the distance covered in each part."
+        },
+        "Mpg": {
+          "type": "number",
+          "description": "Fuel efficiency in miles per gallon for the 'combined' engine cycle as stipulated in Directive 1999/100/EC. The combined figure presented is for the urban and the extra-urban cycle together. It is therefore an average of the two other parts of the fuel consumption test, Urban and Extra-urban cycles, weighted by the distance covered in each part."
+        }
+      }
+    }
+  },
+  "properties": {
+    "Request": {
+      "type": "object",
+      "properties": {
+        "ApiKeyId": { "type": "string" },
+        "PackageId": { "type": "string" },
+        "PackageVersion": { "type": "number" },
+        "ResponseVersion": { "type": "number" }
+      }
+    },
+    "Response": {
+      "type": "object",
+      "properties": {
+        "StatusCode": { "type": "string" },
+        "StatusMessage": { "type": "string" },
+        "MetaDataForItems": {
+          "type": "object",
+          "properties": {
+            "ClassificationDetails": {
+              "type": "object",
+              "properties": {
+                "Dvla": {
+                  "type": "object",
+                  "properties": {
+                    "Make": {
+                      "type": "string",
+                      "description": "Vehicle make as defined by DVLA."
+                    },
+                    "Model": {
+                      "type": "string",
+                      "description": "Vehicle model as defined by DVLA."
+                    }
+                  }
+                },
+                "Smmt": {
+                  "type": "object",
+                  "properties": {
+                    "Make": {
+                      "type": "string",
+                      "description": "Vehicle make as defined by SMMT."
+                    },
+                    "Mvris": {
+                      "type": "object",
+                      "properties": {
+                        "MakeCode": {
+                          "type": "string",
+                          "description": "MVRIS make code."
+                        },
+                        "ModelCode": {
+                          "type": "string",
+                          "description": "MVRIS model code."
+                        }
+                      }
+                    },
+                    "Range": {
+                      "type": "string",
+                      "description": "Vehicle range as defined by SMMT."
+                    },
+                    "Trim": {
+                      "type": "string",
+                      "description": "Vehicle trim as defined by SMMT."
+                    }
+                  }
+                },
+                "Ukvd": {
+                  "type": "object",
+                  "properties": {
+                    "IsElectricVehicle": {
+                      "type": "boolean",
+                      "description": "Indicates whether this is an electric vehicle."
+                    },
+                    "VrmFormat": {
+                      "type": "object",
+                      "properties": {
+                        "IsGbGeneralFormat": {
+                          "type": "boolean",
+                          "description": "Set to true if the VRM format matches one of the formats used for general registrations in Great Britain."
+                        },
+                        "IsNiGeneralFormat": {
+                          "type": "boolean",
+                          "description": "Set to true if the VRM format matches one of the formats used for general registrations in Northern Ireland."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "SmmtDetails": {
+              "type": "object",
+              "properties": {
+                "BodyStyle": {
+                  "type": "string",
+                  "description": "The style of the vehicle's body.  E.g. 'Estate', 'MPV', 'Saloon', etc."
+                },
+                "CabType": {
+                  "type": "string",
+                  "description": "Refers to HGVs only. Describes if any cabin is available to sleep in."
+                },
+                "CountryOfOrigin": {
+                  "type": "string",
+                  "description": "The country the vehicle originated from."
+                },
+                "DataVersionNumber": {
+                  "type": "number",
+                  "description": "SMMT data version number."
+                },
+                "DriveType": {
+                  "type": "string",
+                  "description": " Identifies the number of wheels the vehicle has and how many of them are driving the vehicle.  E.g. '4x2' or '4x4'."
+                },
+                "EngineCapacity": {
+                  "type": "string",
+                  "description": "The exact engine cubic capacity in cubic centimetres e.g. '1998' (whereas NominalEngineCapacity cc may be given as '2.0L')."
+                },
+                "FuelType": {
+                  "type": "string",
+                  "description": "Type of fuel or power source used. E.g. 'Petrol'."
+                },
+                "MarketSectorCode": {
+                  "type": "string",
+                  "description": "SMMT 2 digit market sector of the model variant: E.g. 'AA' = 'CAR (EXC. OFF ROAD)' & 'DC' = 'LCVs ALL 2601 - 3500 KGS'."
+                },
+                "Marque": {
+                  "type": "string",
+                  "description": "The 'badge' on the vehicle.  E.g. 'Ford', 'Vauxhall', etc."
+                },
+                "MarqueCode": {
+                  "type": "string",
+                  "description": "Two digit code that identifies the marque of the vehicle."
+                },
+                "ModelCode": {
+                  "type": "string",
+                  "description": "2 or 3 digit code that identifies the model of the vehicle."
+                },
+                "ModelVariant": {
+                  "type": "string",
+                  "description": "Vehicle model and trim as detailed by the manufacturer."
+                },
+                "NominalEngineCapacity": {
+                  "type": "number",
+                  "description": "The approximate engine  capacity in cubic centimetres e.g. 2.0L (whereas EngineCapacity is the exact engine capacity."
+                },
+                "NumberOfDoors": {
+                  "type": "integer",
+                  "description": "The number of doors on a passenger car."
+                },
+                "NumberOfGears": {
+                  "type": "integer",
+                  "description": "The number of gears (forward driving gear ratios) in the vehicle transmission.  E.g. '6'."
+                },
+                "Range": {
+                  "type": "string",
+                  "description": "The collective name for a family of model variants.  E.g. 'MONDEO', 'FOCUS', 'ASTRA'."
+                },
+                "Series": {
+                  "type": "string",
+                  "description": "The factory code or the manufacturer's internal code which distinguishes the evolution of the model from the previous version. Series enables a vehicle within a model range to be distinguished from other models in the same model range. The differences do not qualify the vehicle to be described as a new Range because the modifications only amount to a 'face lift'."
+                },
+                "SysSetupDate": {
+                  "type": "string",
+                  "description": "Identifies the model variant system setup date of the vehicle."
+                },
+                "TerminateDate": {
+                  "type": "string",
+                  "description": "Identifies the model variant termination date of the vehicle."
+                },
+                "Transmission": {
+                  "type": "string",
+                  "description": "A description of the Transmission Type.  E.g. 'Automatic', 'CVT', 'Manual'."
+                },
+                "VisibilityDate": {
+                  "type": "string",
+                  "description": "Identifies the model variant visibility date of the vehicle."
+                }
+              }
+            },
+            "TechnicalDetails": {
+              "type": "object",
+              "properties": {
+                "Consumption": {
+                  "type": "object",
+                  "properties": {
+                    "Combined": {
+                      "$ref": "#/definitions/Consumption"
+                    },
+                    "ExtraUrban": {
+                      "$ref": "#/definitions/Consumption"
+                    },
+                    "UrbanCold": {
+                      "$ref": "#/definitions/Consumption"
+                    }
+                  }
+                },
+                "Dimensions": {
+                  "type": "object",
+                  "properties": {
+                    "BodyShape": {
+                      "type": "string",
+                      "description": "Additional Variant Description field for commercial vehicles to allow relative roof heights and body shape versions of same variant."
+                    },
+                    "CarLength": {
+                      "type": "number",
+                      "description": "The distance in millimetres between a vertical line at the front bumper of the vehicle to a similar line at the most extreme point at the rear of the vehicle."
+                    },
+                    "DataVersionNumber": {
+                      "type": "number",
+                      "description": "Version number for this data."
+                    },
+                    "FuelTankCapacity": {
+                      "type": "number",
+                      "description": "Capacity of vehicle fuel tank in litres."
+                    },
+                    "GrossCombinedWeight": {
+                      "type": "number",
+                      "description": "Standard abbreviation: GCW. The total maximum weight of an articulated vehicle as driven, i.e. with semi-trailer, payload, driver and all fluids."
+                    },
+                    "GrossTrainWeight": {
+                      "type": "number",
+                      "description": "Standard abbreviation: GTW. The total maximum weight of a rigid vehicle together with its loaded draw-bar trailer. (NOTE: Sometimes manufacturers use the term GCW for both rigid and articulated vehicles)."
+                    },
+                    "GrossVehicleWeight": {
+                      "type": "number",
+                      "description": "Standard abbreviation: GVW. The total maximum weight of a rigid vehicle as driven, i.e. with body, payload, driver and all fluids."
+                    },
+                    "Height": {
+                      "type": "number",
+                      "description": "The distance in millimetres from a horizontal line touching the highest point of the vehicle roof to the point of contact with the road surface."
+                    },
+                    "KerbWeight": {
+                      "type": "number",
+                      "description": "The weight of the complete vehicle and all equipment without payload or driver."
+                    },
+                    "LoadLength": {
+                      "type": "number",
+                      "description": "Measured in millimetres at floor level from behind the driverâ€™s seat to the end of floor space."
+                    },
+                    "NumberOfAxles": {
+                      "type": "integer",
+                      "description": "Total number of Axles."
+                    },
+                    "NumberOfDoors": {
+                      "type": "integer",
+                      "description": "Number of doors the vehicle has."
+                    },
+                    "NumberOfSeats": {
+                      "type": "integer",
+                      "description": "Total number of seats to include driver as specified on the Certificate of Conformity."
+                    },
+                    "PayloadVolume": {
+                      "type": "number",
+                      "description": "The cubic capacity of the load space for the vehicle measured in cubic metres. (This value is entered for factory built panel vans. For other body types and chassis cabs, the equivalent for the panel van version in the range may be entered)."
+                    },
+                    "PayloadWeight": {
+                      "type": "number",
+                      "description": "The maximum weight of goods that can be carried on a specific vehicle, not to exceed limits set by the Construction & Use regulations."
+                    },
+                    "RigidArtic": {
+                      "type": "string",
+                      "description": "Descriptive field that indicates if the vehicle has a permanent or semi permanent pivoting joint (Artic) or not (Rigid)."
+                    },
+                    "UnladenWeight": {
+                      "type": "number",
+                      "description": "Standard abbreviation: ULW. The total weight of an unladen vehicle with body, less driver, ready for operation on the road."
+                    },
+                    "WheelBase": {
+                      "type": "number",
+                      "description": "The distance in Millimeters between the front and rear axles."
+                    },
+                    "Width": {
+                      "type": "number",
+                      "description": "The distance in Millimetres between two vertical lines touching the opposite sides of the vehicle excluding the Wing Mirrors."
+                    }
+                  }
+                },
+                "General": {
+                  "type": "object",
+                  "properties": {
+                    "DataVersionNumber": {
+                      "type": "number",
+                      "description": "Version number for this data."
+                    },
+                    "DriverPosition": {
+                      "type": "string",
+                      "description": "Driver side position within vehicle."
+                    },
+                    "DrivingAxle": {
+                      "type": "string",
+                      "description": "Location of powered axle/s."
+                    },
+                    "ElectricVehicleBattery": {
+                      "type": "object",
+                      "properties": {
+                        "Capacity": {
+                          "type": "string",
+                          "description": "Capacity of Electric Vehicle Battery used."
+                        },
+                        "ChargePort": {
+                          "type": "string",
+                          "description": "Type of charge port used to charge the Electric Vehicle Battery."
+                        },
+                        "ChargeTime": {
+                          "type": "string",
+                          "description": "Time required to charge Electric Vehicle Battery."
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Type of Electric Vehicle Battery used."
+                        }
+                      }
+                    },
+                    "Engine": {
+                      "type": "object",
+                      "properties": {
+                        "Aspiration": {
+                          "type": "string",
+                          "description": "The method by which the engine breathes. E.g. 'NATURALLY ASPIRATED', 'SUPERCHARGER', 'TURBO'."
+                        },
+                        "Bore": {
+                          "type": "number",
+                          "description": "Internal Diameter of the Engine Cylinder in (mm)."
+                        },
+                        "CylinderArrangement": {
+                          "type": "string",
+                          "description": "Physical Arrangement of the cylinders â€“ 'VEE' (The cylinders and pistons are aligned, in two separate planes or 'banks', so that they appear to be in a 'V' when viewed along the axis of the crankshaft) , 'INLINE' (Cylinders arranged in a single row side by side and parallel to one another)"
+                        },
+                        "description": {
+                          "type": "string",
+                          "description": "Manufacturer specific engine description."
+                        },
+                        "FuelCatalyst": {
+                          "type": "string",
+                          "description": "Fuel catalyst."
+                        },
+                        "FuelDelivery": {
+                          "type": "string",
+                          "description": "Method of fuel delivery used."
+                        },
+                        "FuelSystem": {
+                          "type": "string",
+                          "description": "Summary description of fuel system."
+                        },
+                        "Location": {
+                          "type": "string",
+                          "description": "Location of the engine â€“ FRONT - A front-mounted engine describes the placement of an automobile engine in front of the vehicle passenger compartment. MIDDLE - A mid - engine layout describes the placement of an automobile engine between the rear and front axles). REAR - A rear - engine design layout places the engine at the rear of the vehicle.The center of gravity of the engine itself is past the rear axle."
+                        },
+                        "Make": {
+                          "type": "string",
+                          "description": "Brand name of the engine manufacturer e.g. 'Peugeot', 'Honda'."
+                        },
+                        "NumberOfCylinders": {
+                          "type": "integer",
+                          "description": "The number of cylinders in the engine."
+                        },
+                        "PrimaryFuelFlag": {
+                          "type": "string",
+                          "description": "'Y' flag indicates principal fuel in multifuel vehicle."
+                        },
+                        "Stroke": {
+                          "type": "number",
+                          "description": "Distance between Top dead centre and Bottom dead centre of piston travel (mm)."
+                        },
+                        "ValveGear": {
+                          "type": "string",
+                          "description": "The abbreviation of valve actuation mechanism type - 'SOHC' (Single OverHead Camshaft), 'DOHC' (Double OverHead Camshaft) or 'PUSHROD' (valves actuated by rocker arms actuated by 'pushrods') where known."
+                        },
+                        "ValvesPerCylinder": {
+                          "type": "integer",
+                          "description": "The number of valves per cylinder (four stroke engines have at least 2 poppet valves per cylinder)."
+                        }
+                      }
+                    },
+                    "EuroStatus": {
+                      "type": "string",
+                      "description": "The highest European engine standard which the engine meets (e.g. '3','4','5'). Recorded on V5C document."
+                    },
+                    "IsLimitedEdition": {
+                      "type": "boolean",
+                      "description": "Indicates whether or not the vehicle is part of a limited edition."
+                    },
+                    "PowerDelivery": {
+                      "type": "string",
+                      "description": "Descriptive field to indicate Hybrid or non-hybrid powertrains (Normal)."
+                    },
+                    "SeriesDescription": {
+                      "type": "string",
+                      "description": "Vehicle series description."
+                    },
+                    "TypeApprovalCategory": {
+                      "type": "string",
+                      "description": "European Vehicle Type - e.g  Passenger Car = 'M1',"
+                    }
+                  }
+                },
+                "Performance": {
+                  "type": "object",
+                  "properties": {
+                    "Acceleration": {
+                      "type": "object",
+                      "properties": {
+                        "Kph": {
+                          "type": "number",
+                          "description": "The time, in seconds, taken by the vehicle to accelerate from 0 to 100 Kilometres per hour."
+                        },
+                        "Mph": {
+                          "type": "number",
+                          "description": "The time, in seconds, taken by the vehicle to accelerate from 0 to 60 Miles per Hour."
+                        },
+                        "ZeroTo100Kph": {
+                          "type": "number",
+                          "description": "The time, in seconds, taken by the vehicle to accelerate from 0 to 100 Kilometres per hour."
+                        },
+                        "ZeroTo60Mph": {
+                          "type": "number",
+                          "description": "The time, in seconds, taken by the vehicle to accelerate from 0 to 60 Miles per Hour."
+                        }
+                      }
+                    },
+                    "Co2": {
+                      "type": "number",
+                      "description": "Exhaust emission of carbon dioxide, measured as part of the type approval process, expressed in grams per kilometre."
+                    },
+                    "DataVersionNumber": {
+                      "type": "number",
+                      "description": "Version Number for this data."
+                    },
+                    "MaxSpeed": {
+                      "type": "object",
+                      "properties": {
+                        "Kph": {
+                          "type": "number",
+                          "description": "Maximum speed of the model variant as per the brochure in kilometres per hour."
+                        },
+                        "Mph": {
+                          "type": "number",
+                          "description": "Maximum speed of the model variant as per the brochure in miles per hour."
+                        }
+                      }
+                    },
+                    "NoiseLevel": {
+                      "type": "number",
+                      "description": "Vehicle noise emissions level."
+                    },
+                    "Particles": {
+                      "type": "number",
+                      "description": "Vehicle particulate emissions."
+                    },
+                    "Power": {
+                      "type": "object",
+                      "properties": {
+                        "Bhp": {
+                          "type": "number",
+                          "description": "Maximum power expressed in brake horse power."
+                        },
+                        "Kw": {
+                          "type": "number",
+                          "description": "Maximum power expressed in kilowatts."
+                        },
+                        "Rpm": {
+                          "type": "number",
+                          "description": "Engine speed in revolutions per minute at which the maximum power occurs."
+                        }
+                      }
+                    },
+                    "Torque": {
+                      "type": "object",
+                      "properties": {
+                        "FtLb": {
+                          "type": "number",
+                          "description": "Maximum torque of the engine as reported by the manufacturer in foot pounds."
+                        },
+                        "Nm": {
+                          "type": "number",
+                          "description": "Maximum torque of the engine as reported by the manufacturer in Newton Metres."
+                        },
+                        "Rpm": {
+                          "type": "number",
+                          "description": "Engine speed in revolutions per minute at which the maximum torque occurs."
+                        }
+                      }
+                    }
+                  }
+                },
+                "Safety": {
+                  "type": "object",
+                  "properties": {
+                    "EuroNcap": {
+                      "type": "object",
+                      "properties": {
+                        "Adult": {
+                          "type": "number"
+                        },
+                        "Child": {
+                          "type": "number"
+                        },
+                        "Pedestrian": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "UkvdEnhancedData": {
+              "type": "object",
+              "properties": {
+                "ElectricVehicleData": {
+                  "type": "object"
+                },
+                "Identification": {
+                  "type": "object",
+                  "properties": {
+                    "IsElectricVehicle": {
+                      "type": "boolean",
+                      "description": "Indicates whether this is an electric vehicle."
+                    }
+                  }
+                }
+              }
+            },
+            "VehicleHistory": {
+              "type": "object",
+              "properties": {
+                "ColourChangeCount": {
+                  "type": "integer"
+                },
+                "ColourChangeList": {
+                  "type": "array"
+                },
+                "KeeperChangesCount": {
+                  "type": "integer",
+                  "description": "Number of records in the KeeperChangesList."
+                },
+                "KeeperChangesList": {
+                  "type": "array",
+                  "description": "List of keeper change records.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "DateOfLastKeeperChange": {
+                        "type": "string",
+                        "description": "Date of last keeper change."
+                      },
+                      "DateOfTransaction": {
+                        "type": "string",
+                        "description": "Date of transaction."
+                      },
+                      "NumberOfPreviousKeepers": {
+                        "type": "integer",
+                        "description": "Number of previous keepers."
+                      }
+                    }
+                  }
+                },
+                "NumberOfPreviousKeepers": {
+                  "type": "integer",
+                  "description": "This is the number of previous keepers for this vehicle."
+                },
+                "PlateChangeCount": {
+                  "type": "integer",
+                  "description": "Count of elements in the plate change list."
+                },
+                "PlateChangeList": {
+                  "type": "array",
+                  "description": "List of plate change details.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "CurrentVRM": {
+                        "Name": "",
+                        "type": "string",
+                        "description": "Current VRM"
+                      },
+                      "DateOfReceipt": {
+                        "Name": "",
+                        "type": "string",
+                        "description": "Date of receipt for the transfer."
+                      },
+                      "DateOfTransaction": {
+                        "Name": "",
+                        "type": "string",
+                        "description": "Date of transaction."
+                      },
+                      "PreviousVRM": {
+                        "Name": "",
+                        "type": "string",
+                        "description": "Previous VRM."
+                      },
+                      "TransferType": {
+                        "Name": "",
+                        "type": "string",
+                        "description": "Type of transfer."
+                      }
+                    }
+                  }
+                },
+                "V5CCertificateCount": {
+                  "type": "integer",
+                  "description": "Count of entries in the V5C certificate list."
+                },
+                "V5CCertificateList": {
+                  "type": "array",
+                  "description": "List of V5C certificate details.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "CertificateDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date for this certificate."
+                      }
+                    }
+                  }
+                },
+                "VicCount": {
+                  "type": "integer",
+                  "description": "Count of entries in the Vehicle Id Check list."
+                },
+                "VicList": {
+                  "type": "array",
+                  "description": "List of Vehicle Id Check details.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "VICDate": {
+                        "type": "string",
+                        "description": "Date of VIC test."
+                      },
+                      "VICResult": {
+                        "type": "string",
+                        "description": "Result of the VIC test.  Value will be 'PASS' or 'FAIL'."
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "VehicleRegistration": {
+              "type": "object",
+              "properties": {
+                "CertificateOfDestructionIssued": {
+                  "type": "boolean",
+                  "description": "This flag is set to True when a certificate of destruction has been issued for the vehicle."
+                },
+                "Co2Emissions": {
+                  "type": "number",
+                  "description": "CO2 emissions figure for vehicle."
+                },
+                "Colour": {
+                  "type": "string",
+                  "description": "The current colour of the vehicle."
+                },
+                "DateExported": {
+                  "type": "string",
+                  "description": "The date that the vehicle was exported.  Only present if the vehicle has been exported."
+                },
+                "DateFirstRegistered": {
+                  "type": "string",
+                  "description": "Date when the vehicle was first registered.  This may be the before the date the vehicle was first registered in the UK."
+                },
+                "DateFirstRegisteredUk": {
+                  "type": "string",
+                  "description": "Date when the vehicle was first registered in the UK with the DVLA."
+                },
+                "DateOfLastUpdate": {
+                  "type": "string",
+                  "description": "Date of the last update to the vehicle's core registration description details."
+                },
+                "DateScrapped": {
+                  "type": "string",
+                  "description": "The date that the vehicle was scrapped.  Only present if the vehicle has been scrapped."
+                },
+                "DoorPlan": {
+                  "type": "string",
+                  "description": "DVLA door plan code for this vehicle."
+                },
+                "DoorPlanLiteral": {
+                  "type": "string",
+                  "description": "Door plan description for this vehicle."
+                },
+                "EngineCapacity": {
+                  "type": "string",
+                  "description": "The vehicle's registered engine capacity measured in c.c."
+                },
+                "EngineNumber": {
+                  "type": "string",
+                  "description": "The vehicle's engine number."
+                },
+                "Exported": {
+                  "type": "boolean",
+                  "description": "Boolean value indicating whether or not the vehicle has been exported."
+                },
+                "FuelType": {
+                  "type": "string",
+                  "description": "Fuel type used by the vehicle."
+                },
+                "GearCount": {
+                  "type": "integer",
+                  "description": "Number of gears (forward driving gear ratios) in the vehicle's transmission."
+                },
+                "GrossWeight": {
+                  "type": "number",
+                  "description": "Vehicle gross weight.  For commercial vehicles only."
+                },
+                "Imported": {
+                  "type": "boolean",
+                  "description": "Boolean value indicating whether or not the vehicle has been imported."
+                },
+                "ImportNonEu": {
+                  "type": "boolean",
+                  "description": "Boolean value indicating whether or not the vehicle has been imported from outside the EU."
+                },
+                "Make": {
+                  "type": "string",
+                  "description": "Vehicle make."
+                },
+                "MakeModel": {
+                  "type": "string",
+                  "description": "Vehicle make and model."
+                },
+                "MaxPermissibleMass": {
+                  "type": "number",
+                  "description": "Maximum permissible weight for the vehicle."
+                },
+                "Model": {
+                  "type": "string",
+                  "description": "Vehicle model."
+                },
+                "MvrisMakeCode": {
+                  "type": "string",
+                  "description": "MVRIS (Motor Vehicle Registration Information System) make code for this vehicle."
+                },
+                "MvrisModelCode": {
+                  "type": "string",
+                  "description": "MVRIS (Motor Vehicle Registration Information System) model code for this vehicle."
+                },
+                "PreviousVrmGb": {
+                  "type": "string",
+                  "description": "PreviousVrmGb is supplied by the DVLNI prior to 2009. It is the VRM that was on this vehicle prior to it being registered with the DVLNI, but only if the vehicle was registered with the DVLA immediately prior to being registered with the DVLA."
+                },
+                "PreviousVrmNi": {
+                  "type": "string",
+                  "description": "PreviousVrmNi is supplied by the DVLA prior to 2009.  It is the VRM that was on this vehicle prior to it being registered with the DVLA, but only if the vehicle was registered with the DVLNI immediately prior to being registered with the DVLA."
+                },
+                "Scrapped": {
+                  "type": "boolean",
+                  "description": "Boolean value indicating whether or not the vehicle has been scrapped."
+                },
+                "SeatingCapacity": {
+                  "type": "integer",
+                  "description": "Seating capacity of the vehicle."
+                },
+                "Transmission": {
+                  "type": "string",
+                  "description": "Description of transmission."
+                },
+                "TransmissionCode": {
+                  "type": "string",
+                  "description": "Code indicating type of transmission used in the vehicle."
+                },
+                "TransmissionType": {
+                  "type": "string",
+                  "description": "Type of transmission used in this vehicle."
+                },
+                "VehicleClass": {
+                  "type": "string",
+                  "description": "Classification of the general type of this vehicle (e.g. Motorcycle, Car, LCV, HCV, PCV or Other)."
+                },
+                "VehicleUsedBeforeFirstRegistration": {
+                  "type": "boolean",
+                  "description": "Boolean value indicating whether or not the vehicle was used before the date of first registration in the UK."
+                },
+                "Vin": {
+                  "type": "string",
+                  "description": "The vehicle's unique Vehicle Identification Number."
+                },
+                "VinConfirmationFlag": {
+                  "type": "string",
+                  "description": "Only present if optional key_vin was passed in to query.  'Partial match' indicates a partial match, 'FullMatch' indicates a full match, null indicates no match."
+                },
+                "VinLast5": {
+                  "type": "string",
+                  "description": "The last 5 characters of the Vehicle Identification Number."
+                },
+                "Vrm": {
+                  "type": "string",
+                  "description": "The DVLA assigned Vehicle Registration Mark for this vehicle."
+                },
+                "WheelPlan": {
+                  "type": "string",
+                  "description": "Vehicle wheel plan.  For commercial vehicles only."
+                },
+                "YearMonthFirstRegistered": {
+                  "type": "string",
+                  "description": "Year and month when the vehicle was first registered.  This may be the before the date the vehicle was first registered in the UK."
+                },
+                "YearOfManufacture": {
+                  "type": "string",
+                  "description": "The year in which the vehicle was manufactured."
+                }
+              }
+            },
+            "VehicleStatus": {
+              "type": "object",
+              "properties": {
+                "MotVed": {
+                  "type": "object",
+                  "properties": {
+                    "Message": {
+                      "type": "string",
+                      "description": "When appropriate, the message field will contain:  'No details found' OR 'Timeout exceeded waiting for response' (The MOT/tax data is live sourced when the package request is processed, if the MOT/tax data request exceeds a preset time limit the timeout message is returned)."
+                    },
+                    "MotDue": {
+                      "type": "string",
+                      "description": "Date of Mot due.  (This could either be the 'Expired' or 'Expires' date) e.g. 01/09/2015 (When no MOT data is available on the vehicle then 'No details held by DVLA' will be returned).  (When no details are held at all then this field will be blank)."
+                    },
+                    "TaxDue": {
+                      "type": "string",
+                      "description": "Date of Tax due.  (This could either be the 'Expired' or 'Expires' date) e.g. 01/09/2015 (When no details are held at all then this field will be blank)."
+                    },
+                    "VedBand": {
+                      "type": "string",
+                      "description": "VED band (may differ from VedCo2Band)."
+                    },
+                    "VedCo2Band": {
+                      "type": "string",
+                      "description": "VED CO2 band."
+                    },
+                    "VedCo2Emissions": {
+                      "type": "number",
+                      "description": "VED CO2 emissions figure expressed in g/km."
+                    },
+                    "VedRate": {
+                      "type": "object",
+                      "properties": {
+                        "FirstYear": {
+                          "type": "object",
+                          "properties": {
+                            "SixMonth": {
+                              "type": "number",
+                              "description": "Six month VED rate for first year after a new vehicle is registered."
+                            },
+                            "TwelveMonth": {
+                              "type": "number",
+                              "description": "Twelve month VED rate for first year after a new vehicle is registered."
+                            }
+                          }
+                        },
+                        "PremiumVehicle": {
+                          "type": "object",
+                          "properties": {
+                            "YearTwoToSix": {
+                              "type": "object",
+                              "properties": {
+                                "SixMonth": {
+                                  "type": "number",
+                                  "description": "Six month VED rate for the second to sixth years after a new vehicle with Â£40,000 or greater list price (including options) is registered."
+                                },
+                                "TwelveMonth": {
+                                  "type": "number",
+                                  "description": "Twelve month VED rate for the second to sixth years after a new vehicle with Â£40,000 or greater list price (including options) is registered."
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Standard": {
+                          "type": "object",
+                          "properties": {
+                            "SixMonth": {
+                              "type": "number",
+                              "description": "Standard six month VED rate.  Standard rate applies when no special rate, such as the 'first year' rate takes precidence."
+                            },
+                            "TwelveMonth": {
+                              "type": "number",
+                              "description": "Standard twelve month VED rate.  Standard rate applies when no special rate, such as the 'first year' rate takes precidence."
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "VehicleStatus": {
+                      "type": "string",
+                      "description": "The current tax status on the vehicle.  Current status values are: 'Not taxed', 'Not taxed keeper change', 'SORN in place', 'Tax not due', 'Taxed and due'.  (When no details are held at all then this field will be blank)."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
