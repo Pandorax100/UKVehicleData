@@ -5,6 +5,6 @@ namespace Pandorax.UKVehicleData.Models
     public class PremiumVehicle
     {
         [JsonPropertyName("YearTwoToSix")]
-        public FirstYear YearTwoToSix { get; set; }
+        public YearTwoToSix YearTwoToSix { get; set; }
     }
 }

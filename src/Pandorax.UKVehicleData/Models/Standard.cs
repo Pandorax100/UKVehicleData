@@ -2,16 +2,18 @@
 
 namespace Pandorax.UKVehicleData.Models
 {
-    public class FirstYear
+    public class Standard
     {
         /// <summary>
-        /// Six month VED rate for first year after a new vehicle is registered.
+        /// Standard six month VED rate.  Standard rate applies when no special rate, such as the
+        /// 'first year' rate takes precidence.
         /// </summary>
         [JsonPropertyName("SixMonth")]
         public double? SixMonth { get; set; }
 
         /// <summary>
-        /// Twelve month VED rate for first year after a new vehicle is registered.
+        /// Standard twelve month VED rate.  Standard rate applies when no special rate, such as the
+        /// 'first year' rate takes precidence.
         /// </summary>
         [JsonPropertyName("TwelveMonth")]
         public double? TwelveMonth { get; set; }

@@ -4,16 +4,28 @@ namespace Pandorax.UKVehicleData.Models
 {
     public class ElectricVehicleBattery
     {
+        /// <summary>
+        /// Capacity of Electric Vehicle Battery used.
+        /// </summary>
         [JsonPropertyName("Capacity")]
-        public object Capacity { get; set; }
+        public string Capacity { get; set; }
 
+        /// <summary>
+        /// Type of charge port used to charge the Electric Vehicle Battery.
+        /// </summary>
         [JsonPropertyName("ChargePort")]
-        public object ChargePort { get; set; }
+        public string ChargePort { get; set; }
 
+        /// <summary>
+        /// Time required to charge Electric Vehicle Battery.
+        /// </summary>
         [JsonPropertyName("ChargeTime")]
-        public object ChargeTime { get; set; }
+        public string ChargeTime { get; set; }
 
-        [JsonPropertyName("Type")]
-        public object Type { get; set; }
+        /// <summary>
+        /// Type of Electric Vehicle Battery used.
+        /// </summary>
+        [JsonPropertyName("type")]
+        public string Type { get; set; }
     }
 }

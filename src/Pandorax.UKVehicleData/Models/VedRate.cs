@@ -11,6 +11,6 @@ namespace Pandorax.UKVehicleData.Models
         public PremiumVehicle PremiumVehicle { get; set; }
 
         [JsonPropertyName("Standard")]
-        public FirstYear Standard { get; set; }
+        public Standard Standard { get; set; }
     }
 }

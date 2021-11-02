@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Pandorax.UKVehicleData.Models
 {
@@ -13,8 +13,8 @@ namespace Pandorax.UKVehicleData.Models
         [JsonPropertyName("ClassificationDetails")]
         public ClassificationDetails ClassificationDetails { get; set; }
 
-        [JsonPropertyName("VehicleStatus")]
-        public VehicleStatus VehicleStatus { get; set; }
+        [JsonPropertyName("SmmtDetails")]
+        public SmmtDetails SmmtDetails { get; set; }
 
         [JsonPropertyName("VehicleHistory")]
         public VehicleHistory VehicleHistory { get; set; }
@@ -22,7 +22,7 @@ namespace Pandorax.UKVehicleData.Models
         [JsonPropertyName("VehicleRegistration")]
         public VehicleRegistration VehicleRegistration { get; set; }
 
-        [JsonPropertyName("SmmtDetails")]
-        public SmmtDetails SmmtDetails { get; set; }
+        [JsonPropertyName("VehicleStatus")]
+        public VehicleStatus VehicleStatus { get; set; }
     }
 }

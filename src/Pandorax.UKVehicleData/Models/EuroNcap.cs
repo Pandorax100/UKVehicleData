@@ -4,13 +4,13 @@ namespace Pandorax.UKVehicleData.Models
 {
     public class EuroNcap
     {
-        [JsonPropertyName("Child")]
-        public double Child { get; set; }
-
         [JsonPropertyName("Adult")]
-        public double Adult { get; set; }
+        public double? Adult { get; set; }
+
+        [JsonPropertyName("Child")]
+        public double? Child { get; set; }
 
         [JsonPropertyName("Pedestrian")]
-        public double Pedestrian { get; set; }
+        public double? Pedestrian { get; set; }
     }
 }

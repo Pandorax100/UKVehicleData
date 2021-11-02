@@ -1,23 +1,19 @@
-﻿using System;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace Pandorax.UKVehicleData.Models
 {
     public class Request
     {
-        [JsonPropertyName("RequestGuid")]
-        public Guid RequestGuid { get; set; }
+        [JsonPropertyName("ApiKeyId")]
+        public string ApiKeyId { get; set; }
 
         [JsonPropertyName("PackageId")]
-        public Guid PackageId { get; set; }
+        public string PackageId { get; set; }
 
         [JsonPropertyName("PackageVersion")]
-        public long PackageVersion { get; set; }
+        public double? PackageVersion { get; set; }
 
         [JsonPropertyName("ResponseVersion")]
-        public long ResponseVersion { get; set; }
-
-        [JsonPropertyName("DataKeys")]
-        public DataKeys DataKeys { get; set; }
+        public double? ResponseVersion { get; set; }
     }
 }

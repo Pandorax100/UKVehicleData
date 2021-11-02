@@ -1,16 +1,16 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Pandorax.UKVehicleData.Models
 {
     public class Consumption
     {
+        [JsonPropertyName("Combined")]
+        public FuelConsumption Combined { get; set; }
+
         [JsonPropertyName("ExtraUrban")]
-        public Combined ExtraUrban { get; set; }
+        public FuelConsumption ExtraUrban { get; set; }
 
         [JsonPropertyName("UrbanCold")]
-        public Combined UrbanCold { get; set; }
-
-        [JsonPropertyName("Combined")]
-        public Combined Combined { get; set; }
+        public FuelConsumption UrbanCold { get; set; }
     }
 }

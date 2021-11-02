@@ -4,12 +4,6 @@ namespace Pandorax.UKVehicleData.Models
 {
     public class UKVehicleDataResponse
     {
-        [JsonPropertyName("BillingAccount")]
-        public BillingAccount BillingAccount { get; set; }
-
-        [JsonPropertyName("TechnicalSupport")]
-        public TechnicalSupport TechnicalSupport { get; set; }
-
         [JsonPropertyName("Request")]
         public Request Request { get; set; }
 
