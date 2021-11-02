@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Pandorax.UKVehicleData.Models
 {
@@ -54,7 +54,7 @@ namespace Pandorax.UKVehicleData.Models
         public string SeriesDescription { get; set; }
 
         /// <summary>
-        /// European Vehicle Type - e.g  Passenger Car = 'M1',
+        /// European Vehicle Type - e.g  Passenger Car = 'M1'.
         /// </summary>
         [JsonPropertyName("TypeApprovalCategory")]
         public string TypeApprovalCategory { get; set; }

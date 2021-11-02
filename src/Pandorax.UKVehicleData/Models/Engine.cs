@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Pandorax.UKVehicleData.Models
 {
@@ -21,7 +21,7 @@ namespace Pandorax.UKVehicleData.Models
         /// Physical Arrangement of the cylinders â€“ 'VEE' (The cylinders and pistons are aligned,
         /// in two separate planes or 'banks', so that they appear to be in a 'V' when viewed along
         /// the axis of the crankshaft) , 'INLINE' (Cylinders arranged in a single row side by side
-        /// and parallel to one another)
+        /// and parallel to one another).
         /// </summary>
         [JsonPropertyName("CylinderArrangement")]
         public string CylinderArrangement { get; set; }

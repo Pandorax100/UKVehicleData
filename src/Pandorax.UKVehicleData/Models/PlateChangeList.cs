@@ -1,11 +1,11 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Pandorax.UKVehicleData.Models
 {
     public class PlateChangeList
     {
         /// <summary>
-        /// Current VRM
+        /// Current VRM.
         /// </summary>
         [JsonPropertyName("CurrentVRM")]
         public string CurrentVrm { get; set; }

@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Pandorax.UKVehicleData.Models
 {
@@ -49,7 +49,7 @@ namespace Pandorax.UKVehicleData.Models
         public string FuelType { get; set; }
 
         /// <summary>
-        /// SMMT 2 digit market sector of the model variant: E.g. 'AA' = 'CAR (EXC. OFF ROAD)' & 'DC'
+        /// SMMT 2 digit market sector of the model variant: E.g. 'AA' = 'CAR (EXC. OFF ROAD)' and 'DC'
         /// = 'LCVs ALL 2601 - 3500 KGS'.
         /// </summary>
         [JsonPropertyName("MarketSectorCode")]
