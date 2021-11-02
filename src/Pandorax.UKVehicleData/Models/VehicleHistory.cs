@@ -20,7 +20,7 @@ namespace Pandorax.UKVehicleData.Models
         /// List of keeper change records.
         /// </summary>
         [JsonPropertyName("KeeperChangesList")]
-        public Dictionary<string, object>[] KeeperChangesList { get; set; }
+        public KeeperChangesList[] KeeperChangesList { get; set; }
 
         /// <summary>
         /// This is the number of previous keepers for this vehicle.
