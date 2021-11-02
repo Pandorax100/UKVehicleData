@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization;
 
 namespace Pandorax.UKVehicleData.Models
@@ -8,13 +9,13 @@ namespace Pandorax.UKVehicleData.Models
         /// Date of last keeper change.
         /// </summary>
         [JsonPropertyName("DateOfLastKeeperChange")]
-        public string DateOfLastKeeperChange { get; set; }
+        public DateTime DateOfLastKeeperChange { get; set; }
 
         /// <summary>
         /// Date of transaction.
         /// </summary>
         [JsonPropertyName("DateOfTransaction")]
-        public string DateOfTransaction { get; set; }
+        public DateTime DateOfTransaction { get; set; }
 
         /// <summary>
         /// Number of previous keepers.

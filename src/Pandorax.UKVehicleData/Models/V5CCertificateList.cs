@@ -9,6 +9,6 @@ namespace Pandorax.UKVehicleData.Models
         /// Date for this certificate.
         /// </summary>
         [JsonPropertyName("CertificateDate")]
-        public DateTimeOffset? CertificateDate { get; set; }
+        public DateTime CertificateDate { get; set; }
     }
 }

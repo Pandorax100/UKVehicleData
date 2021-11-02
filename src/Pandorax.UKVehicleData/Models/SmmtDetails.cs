@@ -1,4 +1,6 @@
+using System;
 using System.Text.Json.Serialization;
+using Pandorax.UKVehicleData.JsonConverters;
 
 namespace Pandorax.UKVehicleData.Models
 {
@@ -118,7 +120,8 @@ namespace Pandorax.UKVehicleData.Models
         /// Identifies the model variant system setup date of the vehicle.
         /// </summary>
         [JsonPropertyName("SysSetupDate")]
-        public string SysSetupDate { get; set; }
+        [JsonConverter(typeof(DayMonthYearDateConverter))]
+        public DateTime SysSetupDate { get; set; }
 
         /// <summary>
         /// Identifies the model variant termination date of the vehicle.
@@ -136,6 +139,7 @@ namespace Pandorax.UKVehicleData.Models
         /// Identifies the model variant visibility date of the vehicle.
         /// </summary>
         [JsonPropertyName("VisibilityDate")]
-        public string VisibilityDate { get; set; }
+        [JsonConverter(typeof(DayMonthYearDateConverter))]
+        public DateTime VisibilityDate { get; set; }
     }
 }
