@@ -121,7 +121,7 @@ namespace Pandorax.UKVehicleData.Models
         /// </summary>
         [JsonPropertyName("SysSetupDate")]
         [JsonConverter(typeof(DayMonthYearDateConverter))]
-        public DateTime SysSetupDate { get; set; }
+        public DateTime? SysSetupDate { get; set; }
 
         /// <summary>
         /// Identifies the model variant termination date of the vehicle.
@@ -140,6 +140,6 @@ namespace Pandorax.UKVehicleData.Models
         /// </summary>
         [JsonPropertyName("VisibilityDate")]
         [JsonConverter(typeof(DayMonthYearDateConverter))]
-        public DateTime VisibilityDate { get; set; }
+        public DateTime? VisibilityDate { get; set; }
     }
 }
