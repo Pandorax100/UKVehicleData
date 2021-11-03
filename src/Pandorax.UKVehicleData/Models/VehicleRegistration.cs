@@ -35,19 +35,19 @@ namespace Pandorax.UKVehicleData.Models
         /// was first registered in the UK.
         /// </summary>
         [JsonPropertyName("DateFirstRegistered")]
-        public DateTime DateFirstRegistered { get; set; }
+        public DateTime? DateFirstRegistered { get; set; }
 
         /// <summary>
         /// Date when the vehicle was first registered in the UK with the DVLA.
         /// </summary>
         [JsonPropertyName("DateFirstRegisteredUk")]
-        public DateTime DateFirstRegisteredUk { get; set; }
+        public DateTime? DateFirstRegisteredUk { get; set; }
 
         /// <summary>
         /// Date of the last update to the vehicle's core registration description details.
         /// </summary>
         [JsonPropertyName("DateOfLastUpdate")]
-        public DateTime DateOfLastUpdate { get; set; }
+        public DateTime? DateOfLastUpdate { get; set; }
 
         /// <summary>
         /// The date that the vehicle was scrapped.  Only present if the vehicle has been scrapped.
