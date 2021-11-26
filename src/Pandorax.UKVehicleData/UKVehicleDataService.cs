@@ -30,15 +30,15 @@ namespace Pandorax.UKVehicleData
         }
 
         /// <inheritdoc/>
-        public async Task<UKVehicleDataResponse> GetVehicleDataByRegistrationNumberAsync(string registration)
+        public async Task<UKVehicleDataResponse> GetVehicleDetailsAsync(string registrationNumber)
         {
-            _logger.LogDebug("Getting response for {registration}", registration);
+            _logger.LogDebug("Getting response for {registration}", registrationNumber);
 
-            using HttpResponseMessage response = await _client.GetAsync($"/api/datapackage/VehicleData?v=2&auth_apikey={_options.ApiKey}&key_VRM={registration}");
+            using HttpResponseMessage response = await _client.GetAsync($"/api/datapackage/VehicleData?v=2&auth_apikey={_options.ApiKey}&key_VRM={registrationNumber}");
 
             string json = await response.Content.ReadAsStringAsync();
 
-            _logger.LogDebug("Response for {registration}\n{json}", registration, json);
+            _logger.LogDebug("Response for {registration}\n{json}", registrationNumber, json);
 
             var deserialized = JsonSerializer.Deserialize<UKVehicleDataResponse>(json);
 
