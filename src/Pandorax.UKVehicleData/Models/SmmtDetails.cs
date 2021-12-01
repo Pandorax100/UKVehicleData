@@ -92,13 +92,13 @@ namespace Pandorax.UKVehicleData.Models
         /// The number of doors on a passenger car.
         /// </summary>
         [JsonPropertyName("NumberOfDoors")]
-        public long? NumberOfDoors { get; set; }
+        public int? NumberOfDoors { get; set; }
 
         /// <summary>
         /// The number of gears (forward driving gear ratios) in the vehicle transmission.  E.g. '6'.
         /// </summary>
         [JsonPropertyName("NumberOfGears")]
-        public long? NumberOfGears { get; set; }
+        public int? NumberOfGears { get; set; }
 
         /// <summary>
         /// The collective name for a family of model variants.  E.g. 'MONDEO', 'FOCUS', 'ASTRA'.

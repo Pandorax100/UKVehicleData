@@ -95,7 +95,7 @@ namespace Pandorax.UKVehicleData.Models
         /// Number of gears (forward driving gear ratios) in the vehicle's transmission.
         /// </summary>
         [JsonPropertyName("GearCount")]
-        public long? GearCount { get; set; }
+        public int? GearCount { get; set; }
 
         /// <summary>
         /// Vehicle gross weight.  For commercial vehicles only.
@@ -177,7 +177,7 @@ namespace Pandorax.UKVehicleData.Models
         /// Seating capacity of the vehicle.
         /// </summary>
         [JsonPropertyName("SeatingCapacity")]
-        public long? SeatingCapacity { get; set; }
+        public int? SeatingCapacity { get; set; }
 
         /// <summary>
         /// Description of transmission.

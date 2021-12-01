@@ -5,7 +5,7 @@ namespace Pandorax.UKVehicleData.Models
     public class VehicleHistory
     {
         [JsonPropertyName("ColourChangeCount")]
-        public long? ColourChangeCount { get; set; }
+        public int? ColourChangeCount { get; set; }
 
         [JsonPropertyName("ColourChangeList")]
         public object[] ColourChangeList { get; set; }
@@ -14,25 +14,25 @@ namespace Pandorax.UKVehicleData.Models
         /// Number of records in the KeeperChangesList.
         /// </summary>
         [JsonPropertyName("KeeperChangesCount")]
-        public long? KeeperChangesCount { get; set; }
+        public int? KeeperChangesCount { get; set; }
 
         /// <summary>
         /// List of keeper change records.
         /// </summary>
         [JsonPropertyName("KeeperChangesList")]
-        public KeeperChangesList[] KeeperChangesList { get; set; }
+        public KeeperChangesList[] KeeperChangesList { get; set; } = new KeeperChangesList[0];
 
         /// <summary>
         /// This is the number of previous keepers for this vehicle.
         /// </summary>
         [JsonPropertyName("NumberOfPreviousKeepers")]
-        public long? NumberOfPreviousKeepers { get; set; }
+        public int? NumberOfPreviousKeepers { get; set; }
 
         /// <summary>
         /// Count of elements in the plate change list.
         /// </summary>
         [JsonPropertyName("PlateChangeCount")]
-        public long? PlateChangeCount { get; set; }
+        public int? PlateChangeCount { get; set; }
 
         /// <summary>
         /// List of plate change details.
@@ -44,7 +44,7 @@ namespace Pandorax.UKVehicleData.Models
         /// Count of entries in the V5C certificate list.
         /// </summary>
         [JsonPropertyName("V5CCertificateCount")]
-        public long? V5CCertificateCount { get; set; }
+        public int? V5CCertificateCount { get; set; }
 
         /// <summary>
         /// List of V5C certificate details.
@@ -56,7 +56,7 @@ namespace Pandorax.UKVehicleData.Models
         /// Count of entries in the Vehicle Id Check list.
         /// </summary>
         [JsonPropertyName("VicCount")]
-        public long? VicCount { get; set; }
+        public int? VicCount { get; set; }
 
         /// <summary>
         /// List of Vehicle Id Check details.

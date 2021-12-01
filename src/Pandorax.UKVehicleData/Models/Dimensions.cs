@@ -76,19 +76,19 @@ namespace Pandorax.UKVehicleData.Models
         /// Total number of Axles.
         /// </summary>
         [JsonPropertyName("NumberOfAxles")]
-        public long? NumberOfAxles { get; set; }
+        public int? NumberOfAxles { get; set; }
 
         /// <summary>
         /// Number of doors the vehicle has.
         /// </summary>
         [JsonPropertyName("NumberOfDoors")]
-        public long? NumberOfDoors { get; set; }
+        public int? NumberOfDoors { get; set; }
 
         /// <summary>
         /// Total number of seats to include driver as specified on the Certificate of Conformity.
         /// </summary>
         [JsonPropertyName("NumberOfSeats")]
-        public long? NumberOfSeats { get; set; }
+        public int? NumberOfSeats { get; set; }
 
         /// <summary>
         /// The cubic capacity of the load space for the vehicle measured in cubic metres. (This

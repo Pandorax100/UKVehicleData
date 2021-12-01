@@ -21,6 +21,6 @@ namespace Pandorax.UKVehicleData.Models
         /// Number of previous keepers.
         /// </summary>
         [JsonPropertyName("NumberOfPreviousKeepers")]
-        public long? NumberOfPreviousKeepers { get; set; }
+        public int? NumberOfPreviousKeepers { get; set; }
     }
 }

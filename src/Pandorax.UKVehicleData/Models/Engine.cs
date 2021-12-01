@@ -70,7 +70,7 @@ namespace Pandorax.UKVehicleData.Models
         /// The number of cylinders in the engine.
         /// </summary>
         [JsonPropertyName("NumberOfCylinders")]
-        public long? NumberOfCylinders { get; set; }
+        public int? NumberOfCylinders { get; set; }
 
         /// <summary>
         /// 'Y' flag indicates principal fuel in multifuel vehicle.
@@ -97,6 +97,6 @@ namespace Pandorax.UKVehicleData.Models
         /// cylinder).
         /// </summary>
         [JsonPropertyName("ValvesPerCylinder")]
-        public long? ValvesPerCylinder { get; set; }
+        public int? ValvesPerCylinder { get; set; }
     }
 }
