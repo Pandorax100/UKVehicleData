@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json.Serialization;
+using Pandorax.UKVehicleData.JsonConverters;
 
 namespace Pandorax.UKVehicleData.Models
 {
@@ -247,7 +248,8 @@ namespace Pandorax.UKVehicleData.Models
         /// the vehicle was first registered in the UK.
         /// </summary>
         [JsonPropertyName("YearMonthFirstRegistered")]
-        public string YearMonthFirstRegistered { get; set; }
+        [JsonConverter(typeof(YearMonthDateConverter))]
+        public DateTime? YearMonthFirstRegistered { get; set; }
 
         /// <summary>
         /// The year in which the vehicle was manufactured.
