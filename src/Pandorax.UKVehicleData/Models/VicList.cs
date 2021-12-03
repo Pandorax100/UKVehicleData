@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization;
 
 namespace Pandorax.UKVehicleData.Models
@@ -8,7 +9,7 @@ namespace Pandorax.UKVehicleData.Models
         /// Date of VIC test.
         /// </summary>
         [JsonPropertyName("VICDate")]
-        public string VicDate { get; set; }
+        public DateTime? VicDate { get; set; }
 
         /// <summary>
         /// Result of the VIC test.  Value will be 'PASS' or 'FAIL'.

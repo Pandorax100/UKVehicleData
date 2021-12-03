@@ -29,7 +29,7 @@ namespace Pandorax.UKVehicleData.Models
         /// The date that the vehicle was exported.  Only present if the vehicle has been exported.
         /// </summary>
         [JsonPropertyName("DateExported")]
-        public string DateExported { get; set; }
+        public DateTime? DateExported { get; set; }
 
         /// <summary>
         /// Date when the vehicle was first registered.  This may be the before the date the vehicle
@@ -54,7 +54,7 @@ namespace Pandorax.UKVehicleData.Models
         /// The date that the vehicle was scrapped.  Only present if the vehicle has been scrapped.
         /// </summary>
         [JsonPropertyName("DateScrapped")]
-        public string DateScrapped { get; set; }
+        public DateTime? DateScrapped { get; set; }
 
         /// <summary>
         /// DVLA door plan code for this vehicle.

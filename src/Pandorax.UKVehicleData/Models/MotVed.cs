@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization;
 
 namespace Pandorax.UKVehicleData.Models
@@ -19,14 +20,14 @@ namespace Pandorax.UKVehicleData.Models
         /// returned).  (When no details are held at all then this field will be blank).
         /// </summary>
         [JsonPropertyName("MotDue")]
-        public string MotDue { get; set; }
+        public DateTime? MotDue { get; set; }
 
         /// <summary>
         /// Date of Tax due.  (This could either be the 'Expired' or 'Expires' date) e.g. 01/09/2015
         /// (When no details are held at all then this field will be blank).
         /// </summary>
         [JsonPropertyName("TaxDue")]
-        public string TaxDue { get; set; }
+        public DateTime? TaxDue { get; set; }
 
         /// <summary>
         /// VED band (may differ from VedCo2Band).

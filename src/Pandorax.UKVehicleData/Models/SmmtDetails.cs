@@ -127,7 +127,7 @@ namespace Pandorax.UKVehicleData.Models
         /// Identifies the model variant termination date of the vehicle.
         /// </summary>
         [JsonPropertyName("TerminateDate")]
-        public string TerminateDate { get; set; }
+        public DateTime? TerminateDate { get; set; }
 
         /// <summary>
         /// A description of the Transmission Type.  E.g. 'Automatic', 'CVT', 'Manual'.

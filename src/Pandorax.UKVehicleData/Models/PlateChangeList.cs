@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization;
 
 namespace Pandorax.UKVehicleData.Models
@@ -14,13 +15,13 @@ namespace Pandorax.UKVehicleData.Models
         /// Date of receipt for the transfer.
         /// </summary>
         [JsonPropertyName("DateOfReceipt")]
-        public string DateOfReceipt { get; set; }
+        public DateTime? DateOfReceipt { get; set; }
 
         /// <summary>
         /// Date of transaction.
         /// </summary>
         [JsonPropertyName("DateOfTransaction")]
-        public string DateOfTransaction { get; set; }
+        public DateTime? DateOfTransaction { get; set; }
 
         /// <summary>
         /// Previous VRM.
