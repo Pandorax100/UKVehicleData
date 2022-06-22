@@ -10,7 +10,6 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Pandorax100/UKVehicleData</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Pandorax100/UKVehicleData</RepositoryUrl>
-    <AnalysisLevel>latest-recommended</AnalysisLevel>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
