@@ -1,4 +1,4 @@
-﻿namespace Pandorax.UKVehicleData
+namespace Pandorax.UKVehicleData.DependencyInjection
 {
     internal class UKVehicleDataConstants
     {

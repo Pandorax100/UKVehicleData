@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using Microsoft.Extensions.DependencyInjection;
+using Pandorax.UKVehicleData.Options;
 
-namespace Pandorax.UKVehicleData
+namespace Pandorax.UKVehicleData.DependencyInjection
 {
     /// <summary>
     /// A class containing helper extension methods to add the UK Vehicle Data service to the service collection.

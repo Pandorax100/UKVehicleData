@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Pandorax.UKVehicleData.Models;
+using Pandorax.UKVehicleData.Options;
 
 namespace Pandorax.UKVehicleData
 {
@@ -32,13 +33,13 @@ namespace Pandorax.UKVehicleData
         /// <inheritdoc/>
         public async Task<UKVehicleDataResponse> GetVehicleDetailsAsync(string registrationNumber)
         {
-            _logger.LogDebug("Getting response for {registration}", registrationNumber);
+            _logger.LogDebug("Getting response for {Registration}", registrationNumber);
 
             using HttpResponseMessage response = await _client.GetAsync($"/api/datapackage/VehicleData?v=2&auth_apikey={_options.ApiKey}&key_VRM={registrationNumber}");
 
             string json = await response.Content.ReadAsStringAsync();
 
-            _logger.LogDebug("Response for {registration}\n{json}", registrationNumber, json);
+            _logger.LogDebug("Response for {Registration}\n{Json}", registrationNumber, json);
 
             var deserialized = JsonSerializer.Deserialize<UKVehicleDataResponse>(json);
 
