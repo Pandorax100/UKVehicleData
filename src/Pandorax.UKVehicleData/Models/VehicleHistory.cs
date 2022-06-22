@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization;
 
 namespace Pandorax.UKVehicleData.Models
@@ -20,7 +21,7 @@ namespace Pandorax.UKVehicleData.Models
         /// List of keeper change records.
         /// </summary>
         [JsonPropertyName("KeeperChangesList")]
-        public KeeperChangesList[] KeeperChangesList { get; set; } = new KeeperChangesList[0];
+        public KeeperChangesList[] KeeperChangesList { get; set; } = Array.Empty<KeeperChangesList>();
 
         /// <summary>
         /// This is the number of previous keepers for this vehicle.
