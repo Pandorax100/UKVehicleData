@@ -127,6 +127,7 @@ namespace Pandorax.UKVehicleData.Models
         /// Identifies the model variant termination date of the vehicle.
         /// </summary>
         [JsonPropertyName("TerminateDate")]
+        [JsonConverter(typeof(DayMonthYearDateConverter))]
         public DateTime? TerminateDate { get; set; }
 
         /// <summary>
