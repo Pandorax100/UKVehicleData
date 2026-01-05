@@ -4,7 +4,7 @@
     <TargetFrameworks>net10.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageId>Pandorax.UKVehicleData</PackageId>
-    <Version>2.0.0-alpha6</Version>
+    <Version>2.0.0-alpha7</Version>
     <Authors>Liam</Authors>
     <Description>An API client to consume the UK Vehicle Data API</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
