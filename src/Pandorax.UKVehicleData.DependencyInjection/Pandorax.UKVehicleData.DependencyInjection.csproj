@@ -4,7 +4,7 @@
     <TargetFrameworks>net10.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageId>Pandorax.UKVehicleData.DependencyInjection</PackageId>
-    <Version>0.0.0-alpha2</Version>
+    <Version>0.0.0-alpha3</Version>
     <Authors>Liam</Authors>
     <Description>Pandorax.UKVehicleData extensions for ASP.NET Core</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
